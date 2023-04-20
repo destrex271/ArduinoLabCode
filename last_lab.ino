@@ -56,7 +56,7 @@ void loop() {
   timeCur = millis();
   leftW = digitalRead(A2);
   rightW = digitalRead(A0);
-  if(Serial.available() > 0){
+  if(Serial.available() > 0 || flag == 0){
     char s = Serial.read();
     if(s == 'K'){
       flag = 1;
@@ -75,7 +75,5 @@ void loop() {
     else {
       forward();
     }
-    flag = 1;
-    Serial.println("Time Gap : " + timeCur);
   }
 }
